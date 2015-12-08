@@ -1,0 +1,8 @@
+name: highlight
+version: 2.0.0
+description: >
+  Use highlight.js as code
+  syntax-coloring.
+url: http://DLMax.org/statamic-addons/highlight-v2-addon
+developer: Max Westen
+developer_url: http://DLMax.org
