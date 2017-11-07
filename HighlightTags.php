@@ -23,21 +23,14 @@ class HighlightTags extends Tags
         $name = $this->getParam('style', $baseCodeStyle); // Style name defaults to 'default'
         $baseLibVer = $this->getConfig('library_version', 'small');
         
-
-        // Include the needed CSS for this plugin        
-        $addon_name = $this->getAddonClassName();
-        $addon_path = Path::makeRelative(addons_path($addon_name));
-        $cssfile = $addon_path.'/highlightjs/styles/'.$name.'.css';
-        $style = '<link rel="stylesheet" href="/'.$cssfile.'">';
-
-        // Include the needed javascript
+        $style = $this->css->tag($name);
+        $js1 = $this->js->tag('highlight.pack.'.$baseLibVer);
         $js = '
-        <script src="/'.$addon_path.'/highlightjs/highlight.pack.'.$baseLibVer.'.js" type="text/javascript"> </script>
         <script type="text/javascript">
           hljs.initHighlightingOnLoad();
         </script>';
 
-        return $style . $js;
+        return $style . $js1 . $js;
     }
 
 }
